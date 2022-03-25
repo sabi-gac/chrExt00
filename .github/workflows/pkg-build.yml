@@ -35,6 +35,8 @@ jobs:
       # Build with yarn
       - name: build  
         run: CI=false yarn build
-      # list build
-      - name: list  
-        run: ls -la build  
+      - name: Archive build pkg
+        uses: actions/upload-artifact@v3
+        with:
+          name: cat-package
+          path: build
