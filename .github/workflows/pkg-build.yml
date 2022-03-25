@@ -29,9 +29,12 @@ jobs:
       - name: Banner
         run: echo Staring to Build cat...
 
-      # Runs a set of commands using the runners shell
+      # Install yarn
       - name: Inst
         run: yarn install
-      # Runs a set of commands using the runners shell
+      # Build with yarn
       - name: build  
         run: CI=false yarn build
+      # list build
+      - name: list  
+        run: ls -la build  
