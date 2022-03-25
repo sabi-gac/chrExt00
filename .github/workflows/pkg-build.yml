@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CatCI
+name: RTA-rec-CI
 
 # Controls when the workflow will run
 on:
@@ -15,8 +15,9 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build-cat-pkg"
-  build-cat-pkg:
+
+  # This workflow contains a single job called "build-RTA-rec-pkg"
+  build-RTA-rec-pkg:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -30,13 +31,16 @@ jobs:
         run: echo Staring to Build cat...
 
       # Install yarn
-      - name: Inst
+      - name: Install
         run: yarn install
+        
       # Build with yarn
-      - name: build  
+      - name: Build  
         run: CI=false yarn build
+        
+      # Archive build pkg yarn        
       - name: Archive build pkg
         uses: actions/upload-artifact@v3
         with:
-          name: cat-package
+          name: RTA-rec-package
           path: build
